@@ -41,11 +41,11 @@ aws s3 ls s3://sean-murdock/log_json_path.json
 ```
 
 ### Project Init Dag
-![Project INIT DAG workflow](/assets/project_init_dag.png)
+![Project INIT DAG workflow](/Data%20Pipelines%20with%20Airflow/airflow/dags/project/assets/project_init_dag.png)
 Allows the initial tables to be created. Should the tables already exist then those will be dropped.
 
 ### Final Project Dag
-![Final Project DAG workflow](/assets/final_project_dag.png)
+![Final Project DAG workflow](/Data%20Pipelines%20with%20Airflow/airflow/dags/project/assets/final_project_dag.png)
 **Completed DAG Dependencies Image Description**
 The Begin_execution task should be followed by both Stage_events and Stage_songs. These staging tasks should both be followed by the task Load_songplays_fact_table. Completing the Load_songplays_fact_table should trigger four tasks at the same time: Load_artist_dim_table, Load_song_dim_table, Load_time_dim_table, and Load_user_dim_table. After completing all of these four tasks, the task Run_dadta_quality_checks_should_run. And, finally, run the Stop_execution task.
 
